@@ -1,0 +1,82 @@
+<div class="page-header text-center">
+	<h1>{{cliente.nome}}</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Nome</label>
+			<input name="nome" class="form-control" ng-model="cliente.nome" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.nome.$error.required"
+				class="form-control alert-danger">
+				Título obrigatório
+			</span>
+			<span ng-show="formulario.$submitted && formulario.nome.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 20 caracteres!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Razão Social</label>
+			<input name="razaosocial" class="form-control" ng-model="cliente.razaosocial" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.razaosocial.$error.required"
+				class="form-control alert-danger">
+				Razão Social obrigatório
+			</span>
+			<span ng-show="formulario.$submitted && formulario.razaosocial.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 20 caracteres!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>CPF/CNPJ</label>
+			<input name="cpfcnpj" class="form-control" ng-model="cliente.cpfcnpj" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.cpfcnpj.$error.required"
+				class="form-control alert-danger">
+				Razão Social obrigatório
+			</span>
+			<span ng-show="formulario.$submitted && formulario.cpfcnpj.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 20 caracteres!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Email</label>
+			<input name="email" type="email" class="form-control" ng-model="cliente.email" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.email.$error.required"
+				class="form-control alert-danger">
+				Email obrigatório
+			</span>
+			</span>
+		</div>
+		<div class="form-group">
+			<label>URL</label>
+			<input name="url" class="form-control" ng-model="cliente.url" required>
+
+			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
+				class="form-control alert-danger">
+				URL obrigatória
+			</span> 
+		</div>
+		<div class="form-group">
+			<label>Descrição</label>
+			<textarea name="descricao" class="form-control" ng-model="cliente.descricao">
+			</textarea>
+		</div>
+
+		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
+			Salvar
+		</button>
+		<a href="/#/clientes" class="btn btn-primary">Voltar</a>
+		<hr>
+	</div>
+	<div class="col-md-6">
+		<minha-foto url="{{cliente.url}}" titulo="{{cliente.nome}}"></minha-foto>
+	</div>
+</form>
